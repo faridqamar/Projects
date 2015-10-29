@@ -1,4 +1,10 @@
 """
+This is a simple Battleship game to play in the console
+The Battleship is 4 squares in length, and to hit you
+must guess the row number and column number correctly 4 times.
+The game ends when you sink the battleship.
+
+ 
 the following are to come eventually:
 - Make multiple battleships:
 need to be careful because need to make sure that
