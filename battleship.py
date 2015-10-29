@@ -82,13 +82,12 @@ while (end < 1):
             print "You hit my battleship!"
             print "hits left: %d" % battleship_hit
             board[guess_row-1][guess_col-1] = "X"
-			# if battleship sunk, end game
+	    # if battleship sunk, end game
             if (battleship_hit == 0):
                 print_board(board)
                 print "Congratulations! You sunk my battleship!"
                 break
-        # if guess incorrect, replace square with an O
-		else:
+        else:
             print "You missed my battleship!"
             board[guess_row-1][guess_col-1] = "O"
     print "Turn", turn+1
