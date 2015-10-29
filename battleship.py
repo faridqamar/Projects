@@ -15,11 +15,15 @@ battleships aren't placed on top of each other on the game board.
 
 from random import randint
 
+# initiate empty board
 board = []
 
+# create board with 10 rows and columns with "." in each square
 for x in range(10):
     board.append(["."]*10)
 
+# define a function to print the board nicely with row numbers
+# and column numbers visible
 def print_board(board):
     x = 1
     print "  1 2 3 4 5 6 7 8 9 10"
@@ -37,6 +41,7 @@ print "number first and the column number after."
 print ""
 print_board(board)
 
+# randomly pick the coordinates for the battleship
 # 0 for horizontal, 1 for vertical
 updown = randint(0, 1)
 # pick either row or column from 1-10
@@ -59,24 +64,31 @@ end = 0
 turn = 0
 battleship_hit = 4
 while (end < 1):
+	# ask the user to guess row and column numbers
     guess_row = int(raw_input("Guess Row [1-10]:"))
     guess_col = int(raw_input("Guess Col [1-10]:"))
 
+	# begin if sequence:
+	# if coordinates are outside the board rerun loop
     if (guess_row < 1 or guess_row > 10) or (guess_col < 1 or guess_col > 10):
         print "Oops, that's not even in the ocean."
+	# if coordinates already guessed, rerun loop
     elif (board[guess_row-1][guess_col-1] == "O" or board[guess_row-1][guess_col-1] == "X"):
         print "You guessed that one already."
     else:
+		# if guess is correct, replace square with an X
         if (guess_row in random_row and guess_col in random_col):
             battleship_hit -= 1
             print "You hit my battleship!"
             print "hits left: %d" % battleship_hit
             board[guess_row-1][guess_col-1] = "X"
+			# if battleship sunk, end game
             if (battleship_hit == 0):
                 print_board(board)
                 print "Congratulations! You sunk my battleship!"
                 break
-        else:
+        # if guess incorrect, replace square with an O
+		else:
             print "You missed my battleship!"
             board[guess_row-1][guess_col-1] = "O"
     print "Turn", turn+1
