@@ -17,8 +17,7 @@ The code:
 - Uses KNearestNeighbors to fill in missing values for monthly_income
 - ranks feature importance using RandomForest
 - trains a credit classifier
-- evaluates the results by both plotting data and generating reports
+- evaluates the results by both plotting data and generating reports 
 - converts the model into a credit score
-- 
 
 
